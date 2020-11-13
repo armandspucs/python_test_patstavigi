@@ -1,22 +1,19 @@
 import pytest
-from src.dalijums import dali
-def test_dalijums(a,b):
-    assert dali(0,1) == 0
-    assert dali(1,0) == 0
-    assert dali(6,2) == 3
-    assert dali(6,-2) == -3
-    assert dali(-6,2) == -3
-    assert round(dali(5,2),1) == pytest.approx(2.5)
-    assert round(dali(5,-2),1) == pytest.approx(-2.5)
-    assert round(dali(-5,2),1) == pytest.approx(-2.5)
+from src.temp_f import temp_f
+def test_temp_f(a,b):
+    assert temp_f(98) == 36.67 #body temp
+    assert temp_f(32) == 0 #water freezes
+    assert temp_f(212) == 100 #water boils
+    assert temp_f(-480) == −273.15 #apzināti pārāk zems fareheitos
 
-"""Funkcija akceptē divus argumentus - skaiļus a un b,
-aprēķina to dalījumu un atgriež to. Ja skaiļus dalīt nedrīkst,
-atgriež 0.
+
+"""
+Funkcija akceptē vienu argumentu - temperatūru Fārenheita grādos,
+un atgriež temperatūru Celsija grādos. Zemākā temperatūra
+Celsija grādos var būt −273.15, tādēļ, ja aprēķinātā temperatūra ir zemāka, atgriež −273.15.
 
 Argumenti:
-    a {int vai float} -- pirmais skaitlis
-    b {int vai float} -- otrais skaitlis
+    t {int vai float} -- temperatūra Fārenheita grādos
 Atgriež:
-    int vai float -- rezultāts
+    int vai float -- temperatūra Celsija grādos
 """
